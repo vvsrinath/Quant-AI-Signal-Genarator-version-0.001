@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Newspaper, Info, TrendingUp, DollarSign } from 'lucide-react';
+import React from 'react';
+import { Newspaper, Info } from 'lucide-react';
 import { useDashboardStore } from '../store/useDashboardStore';
 
 const NewsPanel: React.FC = () => {
