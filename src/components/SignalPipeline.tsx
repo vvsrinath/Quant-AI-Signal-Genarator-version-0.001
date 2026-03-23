@@ -16,9 +16,9 @@ const SignalPipeline: React.FC = () => {
     <div className="glass-panel p-4 overflow-hidden relative">
       <h2 className="text-[10px] text-gray-500 uppercase tracking-[0.2em] mb-6 font-mono">Signal Generation Pipeline</h2>
       
-      <div className="flex items-center justify-between relative px-2">
+      <div className="flex items-center justify-between relative px-2 overflow-x-auto custom-scrollbar pb-2 min-w-full">
         {/* Connection Line */}
-        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-y-1/2 z-0" />
+        <div className="absolute top-1/2 left-0 w-max min-w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-y-1/2 z-0" />
         
         {steps.map((step, i) => (
           <React.Fragment key={step.name}>

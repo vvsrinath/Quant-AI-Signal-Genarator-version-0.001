@@ -19,11 +19,11 @@ const DashboardLayout: React.FC = () => {
       <TopMetrics />
       
       {/* Main Content Area */}
-      <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-4 xl:grid-cols-12 gap-4">
+      <div className="flex flex-col lg:grid lg:grid-cols-4 xl:grid-cols-12 gap-4 flex-1 lg:min-h-0">
         
         {/* Left Panel: Chart & Signals (Takes up main space) */}
-        <div className="lg:col-span-3 xl:col-span-8 flex flex-col gap-4">
-          <div className="flex-1 glass-panel p-4 flex flex-col">
+        <div className="lg:col-span-3 xl:col-span-8 flex flex-col gap-4 lg:overflow-y-hidden">
+          <div className="glass-panel p-4 flex flex-col min-h-[400px] lg:flex-1">
             <h2 className="text-sm text-gray-400 uppercase tracking-widest mb-2 font-mono flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-neon-blue shadow-neon-blue"></span> Price & Signal
             </h2>
@@ -45,7 +45,7 @@ const DashboardLayout: React.FC = () => {
         </div>
 
         {/* Right Panel: Risk & Features */}
-        <div className="lg:col-span-1 xl:col-span-4 flex flex-col gap-4 overflow-y-auto pr-2 custom-scrollbar">
+        <div className="lg:col-span-1 xl:col-span-4 flex flex-col gap-4 lg:overflow-y-auto lg:pr-2 custom-scrollbar">
           <RiskDashboard />
           <FeaturePanels />
           <div className="glass-panel p-4 flex-1 min-h-[300px]">

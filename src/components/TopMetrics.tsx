@@ -28,7 +28,7 @@ const TopMetrics: React.FC = () => {
   const currentPnL = calculatePnL();
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 shrink-0">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 shrink-0">
       
       {/* Primary Signal */}
       <div className="glass-panel p-4 flex items-center justify-between relative overflow-hidden group">

@@ -18,8 +18,8 @@ function App() {
   }, [symbol, timeframe]);
 
   return (
-    <div className="relative h-screen w-screen bg-[#030303] overflow-hidden">
-      <div className="scanline pointer-events-none z-50" />
+    <div className="relative min-h-screen w-full bg-[#030303] overflow-x-hidden lg:h-screen lg:overflow-hidden">
+      <div className="scanline pointer-events-none z-50 fixed inset-0" />
       
       <AnimatePresence mode="wait">
         <motion.main 
@@ -28,7 +28,7 @@ function App() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="relative z-10 w-full h-full p-4 flex flex-col gap-4 overflow-hidden"
+          className="relative z-10 w-full min-h-screen lg:h-full p-2 lg:p-4 flex flex-col gap-4 lg:overflow-hidden"
         >
           <DashboardLayout />
         </motion.main>

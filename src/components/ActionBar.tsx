@@ -7,14 +7,14 @@ const ActionBar: React.FC = () => {
   const toggleSignalRunning = useDashboardStore(state => state.toggleSignalRunning);
 
   return (
-    <div className="flex items-center justify-between gap-4 p-4 border-t border-white/5 bg-black/40 backdrop-blur-xl shrink-0">
-      <div className="flex items-center gap-6">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-4 p-4 border-t border-white/5 bg-black/40 backdrop-blur-xl shrink-0">
+      <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
         <div className="flex items-center gap-2">
           <div className={`w-2 h-2 rounded-full ${signalRunning ? 'bg-neon-green animate-pulse shadow-[0_0_8px_#00ff7f]' : 'bg-gray-600'}`} />
           <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest">{signalRunning ? 'SIGNAL ENGINE ACTIVE' : 'SIGNAL ENGINE PAUSED'}</span>
         </div>
         
-        <div className="h-4 w-[1px] bg-white/10" />
+        <div className="hidden md:block h-4 w-[1px] bg-white/10" />
         
         <div className="flex items-center gap-4">
           <button 
@@ -31,7 +31,7 @@ const ActionBar: React.FC = () => {
         </div>
       </div>
       
-      <div className="flex items-center gap-4">
+      <div className="flex flex-wrap items-center justify-center gap-4 mt-2 md:mt-0">
         <button className="flex items-center gap-2 px-3 py-1.5 border border-white/10 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 font-mono text-[10px] uppercase tracking-widest">
            <Download className="w-3 h-3" /> Export Logs
         </button>

@@ -1,73 +1,52 @@
-# React + TypeScript + Vite
+# Quantum Binance Signal Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Full stack Binance crypto intraday signal generator. Analyzes real-time price, calculates dynamic indicators (EMA, VWAP, RSI, ATR), evaluates multi-timeframe signals, and provides backtesting functionality.
 
-Currently, two official plugins are available:
+## Architecture
+* **Frontend**: React, Vite, Tailwind CSS, Framer Motion, Zustand.
+* **Backend**: Python 3, FastAPI, Pandas, Pandas-TA (Serverless-ready).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 How to Deploy to Vercel & GitHub
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project has been pre-configured for a seamless push to Vercel and GitHub.
 
-## Expanding the ESLint configuration
+### 1. Push to GitHub
+Open your terminal and link this local Git repository (which is already initialized and committed) to your GitHub account:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# 1. Create a new empty repository on GitHub.com
+# 2. Run the following commands:
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+git push -u origin main
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Deploy on Vercel
+1. Go to [Vercel.com](https://vercel.com/) and click **Add New Project**.
+2. **Import** the GitHub repository you just pushed.
+3. Vercel will automatically detect the `vercel.json` file.
+   * It will build your React application.
+   * It will compile the `api/main.py` folder into serverless Python edge functions.
+4. Click **Deploy**.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+*Note: Your frontend and Python API will automatically share the same deployed domain!*
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 💻 Local Development
+
+**Start the Python Backend:**
+```bash
+py -m pip install -r api/requirements.txt
+py -m uvicorn api.main:app --reload
 ```
+*(Runs on `http://localhost:8000`)*
+
+**Start the React Frontend:**
+```bash
+npm install
+npm run dev
+```
+*(Runs on `http://localhost:5173` or `5174`)*

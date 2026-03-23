@@ -9,3 +9,4 @@ passlib[bcrypt]
 pydantic
 sqlalchemy
 python-multipart
+requests
